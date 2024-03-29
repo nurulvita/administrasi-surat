@@ -15,7 +15,7 @@ if(isset($_POST['register']))
     
     if($result) { 
         header('location:index.php');
-        echo "<script>alert('New User Register Success');</script>";   
+        echo "<script>alert('Anda Berhasil Registrasi');</script>";   
     } else {
         die(mysqli_error($con));
     }

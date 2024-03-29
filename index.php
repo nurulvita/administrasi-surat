@@ -41,13 +41,14 @@
             <div class="form-outline mb-4">
                 <label class="form-label" for="jabatan"><i class="bi bi-person-lines-fill"></i> Jabatan</label>
                 <select id="jabatan" class="form-control form-control-lg" name="jabatan" style="border-radius: 25px;">
-                <option value="" selected disabled hidden>Choose Position</option>
-                <option value="admin">Sekretaris Umum</option>
-                <option value="sekretaris_panitia">Sekretaris Panitia</option>
-                <option value="sekretaris_departemen">Sekretaris Departemen</option>
-                <option value="sekretaris_divisi">Sekretaris Divisi</option>
+                    <option value="" selected disabled hidden>Pilih Jabatan</option>
+                    <option value="admin">Sekretaris Umum</option>
+                    <option value="sekretaris_panitia">Sekretaris Panitia</option>
+                    <option value="sekretaris_departemen">Sekretaris Departemen</option>
+                    <option value="sekretaris_divisi">Sekretaris Divisi</option>
                 </select>
             </div>
+
 
             <!-- Submit button -->
             <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
@@ -56,7 +57,7 @@
             </form>
 
           <br>
-          <p align="center">i don't have any account <a href="register.php" class="text-primary" style="font-weight:600;text-decoration:none;">Register Here</a></p>
+          <p align="center">Belum punya akun? <a href="register.php" class="text-primary" style="font-weight:600;text-decoration:none;"> Daftar Akun</a></p>
         </div>
       </div>
     </div>

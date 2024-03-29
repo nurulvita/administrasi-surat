@@ -15,7 +15,6 @@ if (isset($_POST['login'])) {
     // Periksa apakah inputan kosong
     if (empty($_POST['email']) || empty($_POST['password']) || empty($jabatan)) {
         header('location:index.php');
-
     }
 
     $sql = "SELECT * FROM `user` WHERE `email`='$email' AND `password`='$password' AND `jabatan`='$jabatan'";
@@ -30,10 +29,16 @@ if (isset($_POST['login'])) {
         $_SESSION['password'] = $password;
         $_SESSION['jabatan'] = $jabatan;
 
+        // Redirect sesuai jabatan
         if ($jabatan == 'admin') {
             header('location: view/admin');
+            exit();
+        } elseif ($jabatan == 'sekretaris_departemen' || $jabatan == 'sekretaris_panitia' || $jabatan == 'sekretaris_divisi') {
+            header('location: view/user');
+            exit();
         } else {
-            header('location:view/user');
+            echo "<script>alert('Invalid Position');</script>";
+            header('location:index.php');
         }
     } else {
         echo "<script>alert('Invalid email, Password, or Position');</script>";
