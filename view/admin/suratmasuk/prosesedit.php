@@ -13,7 +13,7 @@
 
       if($_FILES['file']['type']!=null){
          $newfilename= date('dmYHi').str_replace(" ", "", basename($_FILES["file"]["name"]));
-         $targetfolder = "pdfsm/" . $newfilename ;
+         $targetfolder = "../../../pdf/pdfsm/" . $newfilename ;
          $file_type=$_FILES['file']['type'];
          if ($file_type=="application/pdf") {
             if(move_uploaded_file($_FILES['file']['tmp_name'], $targetfolder ))
