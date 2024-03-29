@@ -33,7 +33,7 @@ $_SESSION['email'];
                             </div>
                         </div>
                         <div class="collapse" id="search-nav">
-                            <form method="GET" action="index.php" style="text-align: center;" class="navbar-left navbar-form nav-search mr-md-12">
+                            <form method="GET" action="suratkeluar.php" style="text-align: center;" class="navbar-left navbar-form nav-search mr-md-12">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <button type="submit" class="btn btn-search pr-1">
@@ -79,25 +79,20 @@ $_SESSION['email'];
                                             <tbody>
                                                 <?php 
                                                 include '../../config/koneksi.php';
-                                                    // Menentukan halaman saat ini
+                                    
                                                     $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
 
-                                                    // Jumlah data yang ingin ditampilkan per halaman
-                                                    $limit = 2;
+                                                    $limit = 5;
 
-                                                    // Query untuk menghitung jumlah total data
                                                     $count_query = "SELECT COUNT(*) AS total FROM surat_keluar WHERE status = 'acc'";
                                                     $count_result = mysqli_query($con, $count_query);
                                                     $count_row = mysqli_fetch_assoc($count_result);
                                                     $total_records = $count_row['total'];
-
-                                                    // Hitung jumlah total halaman
+                                             
                                                     $total_pages = ceil($total_records / $limit);
 
-                                                    // Hitung offset untuk query database
                                                     $offset = ($page - 1) * $limit;
 
-                                                    // Query untuk menampilkan data sesuai halaman yang dipilih
                                                     if(isset($_GET['kata_cari'])) {
                                                         $kata_cari = $_GET['kata_cari'];
                                                         $query = "SELECT * FROM surat_keluar  WHERE status = 'acc' AND (nomor like '%".$kata_cari."%' OR kategori like '%".$kata_cari."%' OR  perihal like '%".$kata_cari."%') ORDER BY id ASC LIMIT $offset, $limit";

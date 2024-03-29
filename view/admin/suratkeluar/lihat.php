@@ -1,3 +1,15 @@
+<?php
+$id = $_GET['id'];
+
+session_start();
+include_once('../../../config/koneksi.php');
+
+if (!isset($_SESSION['email'])) {
+    header('location: ../../../index.php');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,23 +25,23 @@
 
 <body>
     <div class="main-panel">
-        <div class="content">
+        <div class="content">  
             <?php   
-                include '../../../config/koneksi.php';
-                $surat = mysqli_query($con, "SELECT * from surat_keluar WHERE id = $id");
-                foreach ($surat as $data) {
-                    // Mengambil nama file dari database
-                    $file_name = $data['file'];
-                    
-                    // Path relatif dari folder pdf/pdfsk
-                    $file_path = '../../../pdf/pdfsk/' . basename($file_name);
-                ?>
-                <h1 class="text-center fw-bold mx-1 pt-3 pb-3 card-header">Detail Surat</h1>
+            include '../../../config/koneksi.php';
+            $surat = mysqli_query($con, "SELECT * from surat_keluar WHERE id = $id");
+            foreach ($surat as $data) {
+                // Mengambil nama file dari database
+                $file_name = $data['file'];
+                
+                // Path relatif dari folder pdf/pdfsk
+                $file_path = '../../../pdf/pdfsk/' . basename($file_name);
+            ?>
+                <h1 class="text-center fw-bold mx-1 pt-3 pb-3" style="background: #eee; color: #007bff;">Detail Surat</h1>
                 <div class="container container-fluid">
                     <div class="page-inner">
                         <div class="page-header">
                             <div class="row">
-                                <div class="col-md-6 mx-4">
+                                <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-body">
                                             <table class="table">
@@ -68,7 +80,7 @@
                                             </table>
                                             <div class="text-right">
                                                 <a href="../suratkeluar.php" class="btn btn-primary">Kembali</a>
-                                                <a href="<?php echo $data['file']; ?>" class="btn btn-danger">Unduh</a>
+                                                <a href="<?php echo $file_path; ?>" class="btn btn-danger">Unduh</a>
                                                 <a href="edit.php?id=<?php echo $data['id']; ?>" class="btn btn-warning">Edit / Ganti File</a>
                                             </div>
                                         </div>

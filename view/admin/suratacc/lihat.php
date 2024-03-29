@@ -109,11 +109,38 @@ if (!isset($_SESSION['email'])) {
                     </div>
                 </div>
             </div>
+
+            <!-- Modal tolak -->
+            <div class="modal fade" id="tolakModal" tabindex="-1" aria-labelledby="tolakModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="tolakModalLabel">Tolak Surat</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form action="tolak.php" method="POST">
+                            <div class="modal-body">
+                                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                <div class="mb-3">
+                                    <label for="keterangan" class="form-label">Alasan Penolakan</label>
+                                    <textarea class="form-control" id="keterangan" name="keterangan" rows="3" required></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn btn-success">Kirim</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <?php
             }
             ?>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

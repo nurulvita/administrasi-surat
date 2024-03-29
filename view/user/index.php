@@ -28,7 +28,7 @@ $_SESSION['email'];
                             <h3 class="text-white pb-2 fw-bold">Welcome, <span style="color: yellow; font-size: 24px;"><?=$_SESSION['nama'];?></span></h3>
                             <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                                 <div>
-                                    <h2 class="text-white pb-2 fw-bold">Arsip Surat Masuk</h2>
+                                    <h2 class="text-white pb-2 fw-bold">Arsip Surat INFORSA</h2>
                                     <h5 class="text-white op-7 mb-2">Berikut ini adalah surat-surat yang telah terbit dan diarsipkan. Klik "Lihat" pada kolom aksi untuk menampilkan surat.</h5>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@ $_SESSION['email'];
                                                     $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
 
                                                     // Jumlah data yang ingin ditampilkan per halaman
-                                                    $limit = 2;
+                                                    $limit = 5;
 
                                                     // Query untuk menghitung jumlah total data
                                                     $count_query = "SELECT COUNT(*) AS total FROM surat_keluar";
@@ -119,8 +119,7 @@ $_SESSION['email'];
                                                         <td><?php echo $row['waktu']; ?></td>
                                                         <td><?php echo $row['status']; ?></td>
                                                         <td>
-                                                            <a onClick="javascript: return confirm('Apakah Anda yakin ingin menghapus surat ini?');" href="suratkeluar/delete.php?id=<?php echo $row['id']; ?>"><button class="btn btn-danger">Hapus</button></a>
-                                                            <a href="lihat.php?id=<?php echo $row['id']; ?>"><button class="btn btn-primary">Lihat >></button></a>
+                                                            <a href="lihat.php?id=<?php echo $row['id']; ?>"><button class="btn btn-primary">Lihat</button></a>
                                                         </td>
                                                     </tr>
                                                     <?php } ?>

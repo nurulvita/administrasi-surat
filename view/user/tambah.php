@@ -17,7 +17,7 @@
       if ($file_type=="application/pdf") {
          if(move_uploaded_file($_FILES['file']['tmp_name'], $targetfolder ))
          {
-            $sql = "INSERT INTO surat_keluar VALUES('','$nomor','$kategori','$tujuan', '$perihal','$tgl_keluar','$waktu','$targetfolder', '$status')";
+            $sql = "INSERT INTO surat_keluar VALUES('','$nomor','$kategori','$tujuan', '$perihal','$tgl_keluar','$waktu','$targetfolder', '$status', '')";
             if(mysqli_query($con,$sql)) {
                echo "<script>alert('Pengajuan Surat Berhasil ditambahkan!');
                window.location.href='index.php';

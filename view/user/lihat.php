@@ -4,6 +4,7 @@ $id = $_GET['id'];
 session_start();
 include_once('../../config/koneksi.php');
 
+
 if (!isset($_SESSION['email'])) {
     header('location:../../index.php');
     exit();
@@ -75,6 +76,10 @@ if (!isset($_SESSION['email'])) {
                                             <tr>
                                                 <th scope="row">Waktu Unggah</th>
                                                 <td><?php echo $data['waktu']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Keterangan</th>
+                                                <td><?php echo $data['keterangan']; ?></td>
                                             </tr>
                                         </tbody>
                                     </table>

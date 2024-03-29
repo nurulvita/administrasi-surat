@@ -1,17 +1,27 @@
-<?php 
-    include '../../../config/koneksi.php';
-    if($_SERVER['REQUEST_METHOD']=='POST') {
-        $id = $_POST['id'];
-        $status = 'tolak';
+<?php
+session_start();
+include_once('../../../config/koneksi.php');
 
-        $sql = "UPDATE surat_keluar SET status='$status' WHERE id = '$id'";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id = $_POST['id'];
+    $keterangan = $_POST['keterangan']; // Mengambil alasan penolakan dari form
 
-        if(mysqli_query($con, $sql)) {
-            echo "<script>alert('Surat Berhasil di Tolak!');
-                window.location.href='../suratacc.php?id=".$id."';
-                </script>";
-        } else {
-            echo "<script>alert('Gagal Menolak Surat!');</script>".mysqli_error($con);
-        }
+    // Simpan keterangan penolakan ke dalam sesi
+    $_SESSION['keterangan'] = $keterangan;
+
+    // Contoh proses update status dan penyimpanan keterangan penolakan di database
+    $query = "UPDATE surat_keluar SET status='ditolak', keterangan='$keterangan' WHERE id=$id";
+
+    if (mysqli_query($con, $query)) {
+        // Jika berhasil, redirect kembali ke halaman sebelumnya atau halaman yang diinginkan
+        header("location: ../suratacc.php");
+        exit();
+    } else {
+        echo "Terjadi kesalahan saat memproses penolakan surat.";
     }
+} else {
+    // Jika halaman diakses secara langsung, redirect ke halaman yang sesuai
+    header("location: ../../../index.php");
+    exit();
+}
 ?>
