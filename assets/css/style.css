@@ -1,3 +1,7 @@
+:root {
+    --footer : linear-gradient(to top, #7e7fd8, #589dda);
+}
+
 .divider:after,
 .divider:before {
     content: "";
@@ -5,3 +9,29 @@
     height: 1px;
     background: #eee;
 }
+
+
+/*------ footer ------*/
+
+footer {
+    padding: 2rem 0;
+    background: var(--footer);
+    text-align: center;
+  }
+  
+  .footer-icons {
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer-icons a {
+    margin: 0 0.5rem;
+  }
+  
+  .footer-icons svg {
+    fill: #3e3f40;
+  }
+  
+  .footer-icons a:hover svg {
+    fill: #000;
+  }
+  /* --------------------- */

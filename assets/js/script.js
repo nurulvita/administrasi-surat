@@ -4,11 +4,6 @@
     var password = document.getElementById("password").value;
     var jabatan = document.getElementById("jabatan").value;
 
-    if (email.trim() == "" || password.trim() == "" || jabatan.trim() == "") {
-        alert("Please Fill email, Password, and Position");
-        return false;
-    }
-
     if (email.trim() == "") {
       alert("Please enter your email");
       return false;

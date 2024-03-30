@@ -3,6 +3,10 @@
     outline: 0 !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important; }
+
+  :root {
+    --footer : linear-gradient(to top, #7e7fd8, #589dda);
+  }
   
   /*   Typography    */
   body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, .btn-simple, .alert, a, .td-name, td, button.close {
@@ -386,21 +390,6 @@
     .form-floating-label .input-border-bottom + .placeholder {
       padding: .375rem 0 .75rem; }
 
-  .custom-control {
-    position: relative; }
-    .custom-control.custom-radio, .custom-control.custom-checkbox {
-      margin-bottom: 0;
-      padding-left: 2em;
-      cursor: pointer;
-      line-height: 24px;
-      margin-right: 25px;
-      display: inline-block; }
-      .custom-control.custom-radio label.error, .custom-control.custom-radio label.success, .custom-control.custom-checkbox label.error, .custom-control.custom-checkbox label.success {
-        position: absolute;
-        width: 100vh;
-        top: 23px;
-        left: 0; }
-  
 
   .input-group.has-icon .form-control {
     border-radius: .25rem;
@@ -622,3 +611,28 @@
   .bg-primary-gradient {
     background: #1572E8 !important;
     background: linear-gradient(-45deg, #06418E, #1572E8) !important; }
+
+    /*------ footer ------*/
+
+footer {
+  padding: 2rem 0;
+  background: var(--footer);
+  text-align: center;
+}
+
+.footer-icons {
+  margin-bottom: 1.5rem;
+}
+
+.footer-icons a {
+  margin: 0 0.5rem;
+}
+
+.footer-icons svg {
+  fill: #3e3f40;
+}
+
+.footer-icons a:hover svg {
+  fill: #000;
+}
+/* --------------------- */

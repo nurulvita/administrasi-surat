@@ -30,10 +30,10 @@ if (isset($_POST['login'])) {
         $_SESSION['jabatan'] = $jabatan;
 
         // Redirect sesuai jabatan
-        if ($jabatan == 'admin') {
+        if ($jabatan == 'sekretaris umum') {
             header('location: view/admin');
             exit();
-        } elseif ($jabatan == 'sekretaris_departemen' || $jabatan == 'sekretaris_panitia' || $jabatan == 'sekretaris_divisi') {
+        } elseif ($jabatan == 'sekretaris departemen' || $jabatan == 'sekretaris panitia' || $jabatan == 'sekretaris divisi') {
             header('location: view/user');
             exit();
         } else {

@@ -7,8 +7,13 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-$_SESSION['nama'];
-$_SESSION['email'];
+$email = $_SESSION['email'];
+$query = "SELECT * FROM user WHERE email = '$email'";
+$result = mysqli_query($con, $query);
+
+$row = mysqli_fetch_assoc($result);
+$_SESSION['username'] = $row['username'];
+$_SESSION['nama'] = $row['nama'];
 ?>
 
 <!DOCTYPE html>
@@ -167,6 +172,8 @@ $_SESSION['email'];
         </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

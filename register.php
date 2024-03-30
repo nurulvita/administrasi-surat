@@ -15,7 +15,7 @@
 <body>
 
   <section class="vh-70 pb-4" style="background-color: #eee;">
-  <h1 class="text-center fw-bold mx-1 pt-1 pb-3" style="background:linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%); color:white">INFORSArchive</h1>
+    <h1 class="text-center fw-bold mx-1 pt-1 pb-3" style="background:linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%); color:white">INFORSArchive</h1>
     <div class="container h-100 pt-3">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-lg-6 col-xl-11">
@@ -24,14 +24,14 @@
               <div class="row justify-content-center">
                 <p class="text-center h1 fw-bold mb-4 mx-1 mx-md-3 mt-3">Sign up</p>
                 <div class="col-md-10 col-lg-6 col-xl-7 order-2 order-lg-1">
-                  <form class="mx-1 mx-md-4" action="add.php" method="post">
+                  <form class="mx-1 mx-md-4" action="add.php" method="post" enctype="multipart/form-data">
                     <div class="row mb-4">
                       <div class="col">
                         <div class="d-flex flex-row align-items-center">
                           <i class="fas fa-user fa-lg fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="form3Example1c"><i class="bi bi-person-circle"></i> Nama</label>
-                            <input type="text" id="form3Example1c" class="form-control form-control-lg" name="nama" autocomplete="off" placeholder="masukkan nama anda" style="border-radius:25px ;" />
+                            <input type="text" id="form3Example1c" class="form-control form-control-lg" name="nama" autocomplete="off" placeholder="masukkan nama anda" style="border-radius:25px ;" required />
                           </div>
                         </div>
                       </div>
@@ -40,7 +40,7 @@
                           <i class="fas fa-envelope fa-lg fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="form3Example3c"><i class="bi bi-envelope-at-fill"></i> Email</label>
-                            <input type="email" id="form3Example3c" class="form-control form-control-lg" name="email" autocomplete="off" placeholder="masukkan email anda" style="border-radius:25px ;" />
+                            <input type="email" id="form3Example3c" class="form-control form-control-lg" name="email" autocomplete="off" placeholder="masukkan email anda" style="border-radius:25px ;" required />
                           </div>
                         </div>
                       </div>
@@ -52,7 +52,7 @@
                           <i class="fas fa-user fa-lg fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="form3Example1c"><i class="bi bi-person-badge-fill"></i> Username</label>
-                            <input type="text" id="form3Example1c" class="form-control form-control-lg" name="username" autocomplete="off" placeholder="masukkan username anda" style="border-radius:25px ;" />
+                            <input type="text" id="form3Example1c" class="form-control form-control-lg" name="username" autocomplete="off" placeholder="masukkan username anda" style="border-radius:25px ;" required />
                           </div>
                         </div>
                       </div>
@@ -61,13 +61,15 @@
                           <i class="fas fa-building fa-lg fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="departemen"><i class="bi bi-building"></i> Departemen</label>
-                            <select id="departemen" class="form-control form-control-lg" name="departemen" style="border-radius: 25px;">
+                            <select id="departemen" class="form-control form-control-lg" name="departemen" style="border-radius: 25px;" required>
                               <option value="" selected disabled hidden>Pilih Departemen</option>
+                              <option value="bpi">BPI</option>
                               <option value="relekat">Relekat</option>
                               <option value="kpsdm">KPSDM</option>
                               <option value="rppm">RPPM</option>
                               <option value="biro_inkref">Biro Inkref</option>
                               <option value="kominfo">Kominfo</option>
+                              <option value="kepanitiaan">Lainnya</option>
                             </select>
                           </div>
                         </div>
@@ -80,11 +82,12 @@
                           <i class="fas fa-briefcase fa-lg fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="position"><i class="bi bi-person-lines-fill"></i> Jabatan</label>
-                            <select id="jabatan" class="form-control form-control-lg" name="jabatan" style="border-radius: 25px;">
+                            <select id="jabatan" class="form-control form-control-lg" name="jabatan" style="border-radius: 25px;" required>
                               <option value="" selected disabled hidden>Pilih Jabatan</option>
-                              <option value="sekretaris_panitia">Sekretaris Panitia</option>
-                              <option value="sekretaris_departemen">Sekretaris Departemen</option>
-                              <option value="sekretaris_divisi">Sekretaris Divisi</option>
+                              <option value="sekretaris umum">Sekretaris Umum</option>
+                              <option value="sekretaris panitia">Sekretaris Panitia</option>
+                              <option value="sekretaris departemen">Sekretaris Departemen</option>
+                              <option value="sekretaris divisi">Sekretaris Divisi</option>
                             </select>
                           </div>
                         </div>
@@ -94,11 +97,23 @@
                           <i class="fas fa-lock fa-lg fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
                             <label class="form-label" for="form3Example4c"><i class="bi bi-chat-left-dots-fill"></i> Password</label>
-                            <input type="password" id="form3Example4c" class="form-control form-control-lg" name="password" autocomplete="off" placeholder="masukkan password anda" style="border-radius:25px ;" />
+                            <input type="password" id="form3Example4c" class="form-control form-control-lg" name="password" autocomplete="off" placeholder="masukkan password anda" style="border-radius:25px ;" required />
                           </div>
                         </div>
                       </div>
                     </div>
+                    <div class="row mb-4">
+                      <div class="col">
+                          <div class="d-flex flex-row align-items-center">
+                              <div class="form-outline flex-fill mb-0">
+                                  <label class="form-label" for="formFile"><i class="bi bi-file-image fa-lg fa-fw"></i> Foto Profil</label>
+                                  <input class="form-control form-control-lg" type="file" id="foto" name="foto" accept="image/*" required>
+
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
 
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                       <input type="submit" value="Register" name="register" class="btn btn-primary btn-lg text-light my-2" style="width:100% ; border-radius: 30px; font-weight:600;" style="border-radius:25px ;" />

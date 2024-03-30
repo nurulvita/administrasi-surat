@@ -7,8 +7,13 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-$_SESSION['nama'];
-$_SESSION['email'];
+$email = $_SESSION['email'];
+$query = "SELECT * FROM user WHERE email = '$email'";
+$result = mysqli_query($con, $query);
+
+$row = mysqli_fetch_assoc($result);
+$_SESSION['username'] = $row['username'];
+$_SESSION['nama'] = $row['nama'];
 ?>
 
 <!DOCTYPE html>
@@ -30,24 +35,9 @@ $_SESSION['email'];
                         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                             <div>
                                 <h2 class="text-white pb-2 fw-bold">Arsip Surat INFORSA</h2>
-                                <h5 class="text-white op-7 mb-2">Berikut ini adalah surat-surat yang telah terbit dam
-                                    diarsipkan Klik "Lihat" pada kolom aksi untuk menampilkan surat</h5>
+                                <!-- <h5 class="text-white op-7 mb-2">Berikut ini adalah surat-surat yang telah terbit dam
+                                    diarsipkan Klik "Lihat" pada kolom aksi untuk menampilkan surat</h5> -->
                             </div>
-                        </div>
-                        <div class="collapse" id="search-nav">
-                            <form method="GET" action="index.php" style="text-align: center;"
-                                class="navbar-left navbar-form nav-search mr-md-12">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <button type="submit" class="btn btn-search pr-1">
-                                            <i class="bx bx-search search-icon" onclick="myFunction()"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" placeholder="Cari Surat" name="kata_cari"
-                                        value="<?php if(isset($_GET['kata_cari'])) { echo $_GET['kata_cari']; } ?>"
-                                        class="form-control">
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -128,6 +118,7 @@ $_SESSION['email'];
         </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 </body>
 
 </html>

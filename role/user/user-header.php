@@ -30,7 +30,7 @@
                         <span class="nav-link active">|</span>
                     </li>
                     <li class="nav-item">
-                        <span class="nav-link active">Email: <?=$_SESSION['email'];?></span>
+                        <a class="nav-link active" href="profil.php">Email: <?=$_SESSION['email'];?></a>
                     </li>
                 </ul>
             </div>
