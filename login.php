@@ -2,6 +2,11 @@
 session_start();
 include_once('config/koneksi.php');
 
+if (isset($_SESSION['login'])) {
+    header('Location: index.php');
+    exit;
+  }
+
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = md5($_POST['password']);
@@ -31,16 +36,17 @@ if (isset($_POST['login'])) {
         $_SESSION['jabatan'] = $jabatan;
 
         // Tambahkan logika "Ingat Saya"
-        if (isset($_POST['ingatSaya']) && $_POST['ingatSaya'] == 'true') {
-            setcookie('ingat_saya_email', $email, time() + 3600 * 24 * 30, '/');
-            setcookie('ingat_saya_password', $password, time() + 3600 * 24 * 30, '/'); 
+        if ($_POST['ingatSaya'] == 'true') {
+            setcookie('ingat_saya_email', $email, time() + 60, '/');
+            setcookie('ingat_saya_password', $password, time() + 60, '/'); 
+
         }
 
         // Redirect sesuai jabatan
         if ($jabatan == 'sekretaris umum') {
             header('location: view/admin');
             exit();
-        } elseif (in_array($jabatan, ['sekretaris departemen', 'sekretaris panitia', 'sekretaris divisi'])) {
+        } elseif ($jabatan == 'sekretaris departemen' || $jabatan == 'sekretaris panitia' || $jabatan == 'sekretaris divisi') {
             header('location: view/user');
             exit();
         } else {

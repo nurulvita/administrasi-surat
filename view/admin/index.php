@@ -11,16 +11,6 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-$email = isset($_COOKIE['email']) ? $_COOKIE['email'] : '';
-$jabatan = isset($_COOKIE['jabatan']) ? $_COOKIE['jabatan'] : '';
-
-$email = $_SESSION['email'];
-$query = "SELECT * FROM user WHERE email = '$email'";
-$result = mysqli_query($con, $query);
-
-$row = mysqli_fetch_assoc($result);
-$_SESSION['username'] = $row['username'];
-$_SESSION['nama'] = $row['nama'];
 ?>
 
 <!DOCTYPE html>

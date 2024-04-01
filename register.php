@@ -24,7 +24,7 @@
               <div class="row justify-content-center">
                 <p class="text-center h1 fw-bold mb-4 mx-1 mx-md-3 mt-3">Sign up</p>
                 <div class="col-md-10 col-lg-6 col-xl-7 order-2 order-lg-1">
-                  <form class="mx-1 mx-md-4" action="add.php" method="post" enctype="multipart/form-data">
+                  <form id="registrationForm" class="mx-1 mx-md-4" action="add.php" method="post" enctype="multipart/form-data" onsubmit="register(event)">
                     <div class="row mb-4">
                       <div class="col">
                         <div class="d-flex flex-row align-items-center">
