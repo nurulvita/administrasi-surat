@@ -2,10 +2,17 @@
 session_start();
 include_once('../../config/koneksi.php');
 
+if (isset($_COOKIE['ingatSaya'])) {
+    $_SESSION['login'] = true;
+  }
+
 if (!isset($_SESSION['email'])) {
     header('location: ../../index.php');
     exit();
 }
+
+$email = isset($_COOKIE['email']) ? $_COOKIE['email'] : '';
+$jabatan = isset($_COOKIE['jabatan']) ? $_COOKIE['jabatan'] : '';
 
 $email = $_SESSION['email'];
 $query = "SELECT * FROM user WHERE email = '$email'";
@@ -25,6 +32,27 @@ $_SESSION['nama'] = $row['nama'];
 </head>
 
 <body>
+        <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="..." class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        </div>
     <div class="container container-fluid">
     <div class="wrapper">
         <div class="main-panel pt-4">

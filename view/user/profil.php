@@ -53,10 +53,9 @@ $_SESSION['departemen'] = $row['departemen'];
                                             include '../../config/koneksi.php';
                                             $foto = mysqli_query($con, "SELECT * from user WHERE email = '$email'");
                                             foreach ($foto as $data) {
-                                                // Mengambil nama file dari database
+                                
                                                 $file_name = $data['foto'];
                                                 
-                                                // Path relatif dari folder uploads
                                                 $file_path = '../../uploads/' . basename($file_name);
                                             ?>
                                             <img src="<?= $file_path ?>" class="img-fluid rounded-start" alt="Foto Profil" style="height: 50vh;">
@@ -89,10 +88,12 @@ $_SESSION['departemen'] = $row['departemen'];
                                                         </tr>
                                                     </tbody>
                                                 </table>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <a href="javascript:history.go(-1)" class="btn btn-secondary">Kembali</a>
                             </div>
                         </div>
                     </div>
@@ -100,6 +101,8 @@ $_SESSION['departemen'] = $row['departemen'];
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

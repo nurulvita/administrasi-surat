@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,16 +20,22 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="../../logout.php" onclick="return confirm('Are you sure you want to logout?')">Logout <i class='bx bx-log-out'></i></a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <?=$_SESSION['email'];?>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="profil.php">Profile</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <span class="nav-link active">|</span>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="profil.php">Email: <?=$_SESSION['email'];?></a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Logout <i class='bx bx-log-out'></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../../logout.php" onclick="return confirm('Are you sure you want to logout?')">Logout</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -38,6 +43,7 @@
     </nav>
     <!-- End Navbar -->
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-rEi5Qmix1bU3TRjrxK5fZDrNCeGlJx7jGmR6sk3lR0W1x4in1Oc2U0W+7LX3YVrV" crossorigin="anonymous"></script>
 
 </body>

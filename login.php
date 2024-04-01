@@ -15,6 +15,7 @@ if (isset($_POST['login'])) {
     // Periksa apakah inputan kosong
     if (empty($_POST['email']) || empty($_POST['password']) || empty($jabatan)) {
         header('location:index.php');
+        exit(); // tambahkan exit setelah redirect
     }
 
     $sql = "SELECT * FROM `user` WHERE `email`='$email' AND `password`='$password' AND `jabatan`='$jabatan'";
@@ -29,20 +30,28 @@ if (isset($_POST['login'])) {
         $_SESSION['password'] = $password;
         $_SESSION['jabatan'] = $jabatan;
 
+        // Tambahkan logika "Ingat Saya"
+        if (isset($_POST['ingatSaya']) && $_POST['ingatSaya'] == 'true') {
+            setcookie('ingat_saya_email', $email, time() + 3600 * 24 * 30, '/');
+            setcookie('ingat_saya_password', $password, time() + 3600 * 24 * 30, '/'); 
+        }
+
         // Redirect sesuai jabatan
         if ($jabatan == 'sekretaris umum') {
             header('location: view/admin');
             exit();
-        } elseif ($jabatan == 'sekretaris departemen' || $jabatan == 'sekretaris panitia' || $jabatan == 'sekretaris divisi') {
+        } elseif (in_array($jabatan, ['sekretaris departemen', 'sekretaris panitia', 'sekretaris divisi'])) {
             header('location: view/user');
             exit();
         } else {
             echo "<script>alert('Invalid Position');</script>";
             header('location:index.php');
+            exit();
         }
     } else {
         echo "<script>alert('Invalid email, Password, or Position');</script>";
         header('location:index.php');
+        exit();
     }
 }
 ?>
