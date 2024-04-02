@@ -2,11 +2,7 @@
 session_start();
 include_once('../../config/koneksi.php');
 
-if (isset($_COOKIE['ingatSaya'])) {
-    $_SESSION['login'] = true;
-  }
-
-if (!isset($_SESSION['email'])) {
+if (!isset($_SESSION['email']) && !isset($_SESSION['email'])) {
     header('location: ../../index.php');
     exit();
 }
@@ -28,25 +24,27 @@ $_SESSION['email'];
             <div class="main-panel pt-4">
                 <div class="content">
                     <div class="panel-header bg-primary-gradient">
-                        <div class="page-inner py-5">
-                            <h3 class="text-white pb-2 fw-bold">Welcome, <span style="color: yellow; font-size: 24px;"><?=$_SESSION['nama'];?></span></h3>
-                            <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
-                                <div>
-                                    <h2 class="text-white pb-2 fw-bold">Arsip Surat INFORSA</h2>
-                                    <h5 class="text-white op-7 mb-2">Berikut ini adalah surat-surat yang telah terbit dan diarsipkan. Klik "Lihat" pada kolom aksi untuk menampilkan surat.</h5>
+                    <div class="page-inner py-2">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <img src="../../assets/img/search.png" class="img-fluid" alt="" style="height: 60vh;">
                                 </div>
-                            </div>
-                            <div class="collapse" id="search-nav">
-                                <form method="GET" action="index.php" style="text-align: center;" class="navbar-left navbar-form nav-search mr-md-12">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <button type="submit" class="btn btn-search pr-1">
-                                                <i class="bx bx-search search-icon" onclick="myFunction()"></i>
-                                            </button>
-                                        </div>
-                                        <input type="text" placeholder="Cari Surat" name="kata_cari" value="<?php if(isset($_GET['kata_cari'])) { echo $_GET['kata_cari']; } ?>" class="form-control">
+                                <div class="col-md-6">
+                                    <h2 class="text-white pb-2 fw-bold">Arsip Surat Keluar</h2>
+                                    <h5 class="text-white op-7 mb-2">Berikut ini adalah surat-surat yang telah terbit dan diarsipkan. Klik "Lihat" pada kolom aksi untuk menampilkan surat</h5>
+                                    <div class="collapse" id="search-nav">
+                                        <form method="GET" action="index.php" style="text-align: center;" class="navbar-left navbar-form nav-search mr-md-12">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <button type="submit" class="btn btn-search pr-1">
+                                                        <i class="bx bx-search search-icon" onclick="myFunction()"></i>
+                                                    </button>
+                                                </div>
+                                                <input type="text" placeholder="Cari Surat" name="kata_cari" value="<?php if(isset($_GET['kata_cari'])) { echo $_GET['kata_cari']; } ?>" class="form-control">
+                                            </div>
+                                        </form>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -121,7 +119,33 @@ $_SESSION['email'];
                                                         <td><?php echo $row['perihal']; ?></td>
                                                         <td><?php echo $row['tgl_keluar']; ?></td>
                                                         <td><?php echo $row['waktu']; ?></td>
-                                                        <td><?php echo $row['status']; ?></td>
+                                                        <td>
+                                                            <?php 
+                                                            $status_class = '';
+                                                            switch ($row['status']) {
+                                                                case 'acc':
+                                                                    $status_class = 'success';
+                                                                    break;
+                                                                case 'ditolak':
+                                                                    $status_class = 'danger';
+                                                                    break;
+                                                                case 'pending':
+                                                                    $status_class = 'warning';
+                                                                    break;
+                                                            }
+                                                            ?>
+                                                                <style>
+                                                                    .btn-rounded {
+                                                                        border-radius: 17px;
+                                                                        font-size: 13px;
+                                                                    }
+                                                                </style>
+                                                            <button class="btn btn-<?php echo $status_class; ?> btn-rounded" >
+                                                                <?php echo $row['status']; ?>
+                                                            </button>
+                                                        </td>
+
+
                                                         <td>
                                                             <a href="lihat.php?id=<?php echo $row['id']; ?>"><button class="btn btn-primary">Lihat</button></a>
                                                         </td>

@@ -445,11 +445,11 @@
     opacity: 0.6 !important; }
 
 
-  /*    Home box total surat */
   .card-surat-masuk {
     background: linear-gradient(to bottom, #a14f07, #e6c417);
     color: white;
-    box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);;
+    box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
+    
   }
 
   .card-surat-keluar {

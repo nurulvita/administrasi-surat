@@ -73,7 +73,7 @@ if (!isset($_SESSION['email'])) {
                                     <div class="row mb-3">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Asal</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="asal" required placeholder="Masukkan Tujuan Surat">
+                                            <input type="text" class="form-control" name="asal" required placeholder="Masukkan Asal Surat">
                                         </div>
                                     </div>
                                     <div class="row mb-3">

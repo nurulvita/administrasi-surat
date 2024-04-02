@@ -3,15 +3,47 @@ session_start();
 include_once('../../config/koneksi.php');
 
 if (isset($_COOKIE['ingatSaya'])) {
-    $_SESSION['login'] = true;
-  }
+  $_SESSION['login'] = true;
+}
 
 if (!isset($_SESSION['email'])) {
     header('location: ../../index.php');
     exit();
 }
 
+
+$_SESSION['nama'];
+$_SESSION['email'];
 ?>
+<!-- // if (isset($_SESSION['login'])) {
+//     // User is already logged in
+//     if ($_SESSION['jabatan'] == 'sekretaris umum') {
+//         header('Location: view/admin/');
+//         exit;
+//     } elseif (in_array($_SESSION['jabatan'], ['sekretaris departemen', 'sekretaris panitia', 'sekretaris divisi'])) {
+//         header('Location: view/user/');
+//         exit;
+//     }
+// }
+
+// // If "Ingat Saya" checkbox is checked, set a cookie
+// if (isset($_POST['ingatSaya']) && $_POST['ingatSaya'] == "true") {
+//     setcookie("ingatSaya", "true", time() + (86400 * 30), "/"); // Cookie set for 30 days
+// }
+
+
+
+// $email = isset($_COOKIE['email']) ? $_COOKIE['email'] : '';
+// $jabatan = isset($_COOKIE['jabatan']) ? $_COOKIE['jabatan'] : '';
+
+// $email = $_SESSION['email'];
+// $query = "SELECT * FROM user WHERE email = '$email'";
+// $result = mysqli_query($con, $query);
+
+// $row = mysqli_fetch_assoc($result);
+// $_SESSION['username'] = $row['username'];
+// $_SESSION['nama'] = $row['nama']; -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,46 +51,35 @@ if (!isset($_SESSION['email'])) {
 <head>
     <?php include '../../role/admin/admin-header.php'; ;?>
 
+    
+
 </head>
 
 <body>
-        <div id="carouselExample" class="carousel slide">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-            <img src="..." class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-        </div>
-    <div class="container container-fluid">
+
+<div class="container container-fluid">
     <div class="wrapper">
         <div class="main-panel pt-4">
             <div class="content">
                 <div class="panel-header bg-primary-gradient">
-                    <div class="page-inner py-5">
-                    <h3 class="text-white pb-2 fw-bold">Welcome, <span style="color: yellow; font-size: 24px;"><?=$_SESSION['nama'];?></span></h3>
-                        <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
-                            <div>
-                                <h2 class="text-white pb-2 fw-bold">Arsip Surat INFORSA</h2>
-                                <!-- <h5 class="text-white op-7 mb-2">Berikut ini adalah surat-surat yang telah terbit dam
-                                    diarsipkan Klik "Lihat" pada kolom aksi untuk menampilkan surat</h5> -->
+                    <div class="page-inner py-2">
+                        <div class="row">
+                            <!-- Kolom untuk gambar home -->
+                            <div class="col-md-6">
+                                <img src="../../assets/img/sm.png" alt="" class="img-fluid" style="height: 65vh;">
+                            </div>
+                            <!-- Kolom untuk pesan welcome -->
+                            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                <div class="text-center">
+                                    <h3 class="text-white pb-2 fw-bold" style="font-size: 50px;">Selamat Datang, <br><span style="color: yellow; font-size:50px;"><?=$_SESSION['nama'];?></span></h3>
+                                    <h2 class="text-white pb-2 fw-bold">Arsip Surat</h2>
+                                    <h5 class="text-white op-7 mb-2">INFORSArchive adalah pendataan surat masuk dan keluar pada Information System Association</h5>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <!----------------- Surat Masuk ----------------->
                 <?php
                         include '../../config/koneksi.php';
@@ -136,6 +157,8 @@ if (!isset($_SESSION['email'])) {
         </div>
         </div>
     </div>
+    <!-- <img src="../../assets/img/bg2.jpg" class="img-fluid img-background" alt=""> -->
+    <script src="../../assets/js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 </body>
 

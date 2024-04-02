@@ -11,27 +11,18 @@
 }
 
 
-/*------ footer ------*/
+.page-inner {
+  animation-duration: 1s; /* Durasi animasi */
+  animation-timing-function: ease-out; /* Easing function */
+}
 
-footer {
-    padding: 2rem 0;
-    background: var(--footer);
-    text-align: center;
+@keyframes bounceInDown {
+  0% {
+      opacity: 0;
+      transform: translateY(-100%);
   }
-  
-  .footer-icons {
-    margin-bottom: 1.5rem;
+  100% {
+      opacity: 1;
+      transform: translateY(0);
   }
-  
-  .footer-icons a {
-    margin: 0 0.5rem;
-  }
-  
-  .footer-icons svg {
-    fill: #3e3f40;
-  }
-  
-  .footer-icons a:hover svg {
-    fill: #000;
-  }
-  /* --------------------- */
+}

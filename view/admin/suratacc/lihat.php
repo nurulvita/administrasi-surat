@@ -79,14 +79,14 @@ if (!isset($_SESSION['email'])) {
                                             </tbody>
                                         </table>
                                         <div class="text-right">
-                                            <a href="../suratacc.php" class="btn btn-primary">Kembali</a>
+                                            <a href="../suratacc.php" class="btn btn-primary btn-rounded">Kembali</a>
                                             <!-- Form untuk mengirimkan data ke setuju.php -->
                                             <form action="setuju.php" method="POST" style="display: inline;">
                                                 <input type="hidden" name="id" value="<?php echo $id; ?>">
-                                                <button type="submit" class="btn btn-success">Setujui</button>
+                                                <button type="submit" class="btn btn-success btn-rounded">Setujui</button>
                                             </form>
                                             <!-- Tombol untuk menampilkan modal tolak -->
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#tolakModal">Tolak</button>
+                                            <button type="button" class="btn btn-danger btn-rounded" data-bs-toggle="modal" data-bs-target="#tolakModal">Tolak</button>
                                         </div>
                                     </div>
                                 </div>
@@ -128,7 +128,7 @@ if (!isset($_SESSION['email'])) {
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                <button type="submit" class="btn btn-success">Kirim</button>
+                                <button type="submit" class="btn btn-primary">Kirim</button>
                             </div>
                         </form>
                     </div>

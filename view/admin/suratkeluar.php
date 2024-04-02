@@ -30,27 +30,30 @@ $_SESSION['nama'] = $row['nama'];
         <div class="main-panel pt-4">
             <div class="content">
                 <div class="panel-header bg-primary-gradient">
-                    <div class="page-inner py-5">
-                        <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
-                            <div>
-                                <h2 class="text-white pb-2 fw-bold">Arsip Surat Keluar</h2>
-                                <h5 class="text-white op-7 mb-2">Berikut ini adalah surat-surat yang telah terbit dan diarsipkan Klik "Lihat" pada kolom aksi untuk menampilkan surat</h5>
+                        <div class="page-inner py-2">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <img src="../../assets/img/search.png" class="img-fluid" alt="" style="height: 60vh;">
+                                </div>
+                                <div class="col-md-6">
+                                    <h2 class="text-white pb-2 fw-bold">Arsip Surat Keluar</h2>
+                                    <h5 class="text-white op-7 mb-2">Berikut ini adalah surat-surat yang telah terbit dan diarsipkan. Klik "Lihat" pada kolom aksi untuk menampilkan surat</h5>
+                                    <div class="collapse" id="search-nav">
+                                        <form method="GET" action="suratkeluar.php" style="text-align: center;" class="navbar-left navbar-form nav-search mr-md-12">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <button type="submit" class="btn btn-search pr-1">
+                                                        <i class="bx bx-search search-icon" onclick="myFunction()"></i>
+                                                    </button>
+                                                </div>
+                                                <input type="text" placeholder="Cari Surat" name="kata_cari" value="<?php if(isset($_GET['kata_cari'])) { echo $_GET['kata_cari']; } ?>" class="form-control">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="collapse" id="search-nav">
-                            <form method="GET" action="suratkeluar.php" style="text-align: center;" class="navbar-left navbar-form nav-search mr-md-12">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <button type="submit" class="btn btn-search pr-1">
-                                            <i class="bx bx-search search-icon" onclick="myFunction()"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" placeholder="Cari Surat" name="kata_cari" value="<?php if(isset($_GET['kata_cari'])) { echo $_GET['kata_cari']; } ?>" class="form-control">
-                                </div>
-                            </form>
-                        </div>
                     </div>
-                </div>
 
                 <div class="pt-3 pb-5">
                 <a href="../admin/suratkeluar/unggah.php"><button class="btn btn-primary btn-round ml-auto">+ Surat Keluar</button></a>       
@@ -123,10 +126,10 @@ $_SESSION['nama'] = $row['nama'];
                                                         <td>
                                                             <a onClick="javascript: return confirm('Apakah Anda yakin ingin menghapus surat ini?');"
                                                                 href="suratkeluar/delete.php?id=<?php echo $row['id']; ?>"><button
-                                                                    class="btn btn-danger">Hapus</button></a>
-                
+                                                                    class="btn btn-danger btn-rounded mt-1" style="border-radius: 20px;">Hapus</button></a>
+
                                                             <a href="suratkeluar/lihat.php?id=<?php echo $row['id']; ?>"><button
-                                                                    class="btn btn-primary">Lihat >></button></a>
+                                                                    class="btn btn-primary btn-rounded mt-1" style="border-radius: 20px;">Lihat >></button></a>
                                                         </td>
 
                                                     </tr>
@@ -172,6 +175,7 @@ $_SESSION['nama'] = $row['nama'];
         </div>
         </div>
     </div>
+    <script src="../../assets/js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 
 </body>

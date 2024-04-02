@@ -79,10 +79,11 @@ if (!isset($_SESSION['email'])) {
                                                 </tbody>
                                             </table>
                                             <div class="text-right">
-                                                <a href="../suratkeluar.php" class="btn btn-primary">Kembali</a>
-                                                <a href="<?php echo $file_path; ?>" class="btn btn-danger">Unduh</a>
-                                                <a href="edit.php?id=<?php echo $data['id']; ?>" class="btn btn-warning">Edit / Ganti File</a>
+                                                <a href="../suratkeluar.php" class="btn btn-primary btn-rounded" style="border-radius: 20px;">Kembali</a>
+                                                <a href="<?php echo $file_path; ?>" class="btn btn-success btn-rounded" style="border-radius: 20px;">Unduh</a>
+                                                <a href="edit.php?id=<?php echo $data['id']; ?>" class="btn btn-warning btn-rounded" style="border-radius: 20px;">Edit / Ganti File</a>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>

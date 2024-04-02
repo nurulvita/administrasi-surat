@@ -74,10 +74,11 @@ if (!isset($_SESSION['email'])) {
                                         </tbody>
                                     </table>
                                     <div class="text-right">
-                                        <a href="../suratmasuk.php"><button type="button" class="btn btn-primary">Kembali</button></a>
-                                        <a href="<?php echo $data['file']; ?>"><button class="btn btn-success">Unduh</button></a>
-                                        <a href="edit.php?id=<?php echo $data['id']; ?>"><button type="button" class="btn btn-warning">Edit / Ganti File</button></a>
-                                    </div>
+                                    <a href="../suratmasuk.php"><button type="button" class="btn btn-primary btn-rounded" style="border-radius: 20px;">Kembali</button></a>
+                                    <a href="<?php echo $data['file']; ?>"><button class="btn btn-success btn-rounded" style="border-radius: 20px;">Unduh</button></a>
+                                    <a href="edit.php?id=<?php echo $data['id']; ?>"><button type="button" class="btn btn-warning btn-rounded" style="border-radius: 20px;">Edit / Ganti File</button></a>
+                                </div>
+
                                 </div>
                                 <div class="col-md-6"> 
                                     <iframe src="<?php echo $data['file']; ?>" width="100%" style="height:80vh"></iframe>
@@ -92,6 +93,7 @@ if (!isset($_SESSION['email'])) {
 <?php
             }
 ?>
+
 </body>
 
 </html>

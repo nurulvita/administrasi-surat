@@ -39,7 +39,7 @@ $_SESSION['nama'] = $row['nama'];
                             </div>
                         </div>
                         <div class="collapse" id="search-nav">
-                            <form method="GET" action="index.php" style="text-align: center;" class="navbar-left navbar-form nav-search mr-md-12">
+                            <form method="GET" action="isuratacc.php" style="text-align: center;" class="navbar-left navbar-form nav-search mr-md-12">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <button type="submit" class="btn btn-search pr-1">
@@ -75,7 +75,6 @@ $_SESSION['nama'] = $row['nama'];
                                                     <th scope="col">Perihal</th>
                                                     <th scope="col">Tanggal Keluar</th>
                                                     <th scope="col">Waktu Pengarsipan</th>
-                                                    <th scope="col">Status</th>
                                                     <th scope="col">Aksi</th>
                                                 </tr>
                                             </thead>
@@ -123,7 +122,6 @@ $_SESSION['nama'] = $row['nama'];
                                                         <td><?php echo $row['perihal']; ?></td>
                                                         <td><?php echo $row['tgl_keluar']; ?></td>
                                                         <td><?php echo $row['waktu']; ?></td>
-                                                        <td><?php echo $row['status']; ?></td>
                                                         <td>                
                                                             <a href="suratacc/lihat.php?id=<?php echo $row['id']; ?>"><button class="btn btn-primary">Lihat</button></a>
                                                         </td>                                                  
@@ -171,6 +169,7 @@ $_SESSION['nama'] = $row['nama'];
         </div>
         </div>
     </div>
+    <script src="../../assets/js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 
 </body>

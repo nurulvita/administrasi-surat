@@ -79,7 +79,7 @@ $_SESSION['departemen'] = $row['departemen'];
                                                             <td><?= $_SESSION['email'] ?></td>
                                                         </tr>
                                                         <tr>
-                                                            <th scope="row">Jabatan</th>
+                                                            <th scope="row">Role</th>
                                                             <td><?= $_SESSION['jabatan'] ?></td>
                                                         </tr>
                                                         <tr>

@@ -23,35 +23,50 @@
   }
 
 
-  function register(event) {
-    event.preventDefault(); 
+document.addEventListener('DOMContentLoaded', function() {
+  const welcomeMessage = document.querySelector('.page-inner');
 
-    var form = document.getElementById('registrationForm');
-    var formData = new FormData(form);
+  welcomeMessage.classList.add('animate__animated', 'animate__bounceInDown');
 
-    localStorage.setItem('registrationData', JSON.stringify(Object.fromEntries(formData)));
+  welcomeMessage.addEventListener('animationend', function() {
+      welcomeMessage.classList.remove('animate__animated', 'animate__bounceInDown');
+  });
+});
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', form.action, true);
-    xhr.onload = function () {
-      if (xhr.status === 200) {
-        // Success
-        var response = xhr.responseText;
-        alert(response); 
-        window.location.href = 'index.php'; 
-      } else {
-        // Error
-        alert('Error: ' + xhr.statusText);
-      }
-    };
-    xhr.onerror = function () {
-      // Network error
-      alert('Network Error');
-    };
-    xhr.send(formData);
-  }
 
-  document.getElementById('registrationForm').addEventListener('submit', register);
+document.addEventListener('DOMContentLoaded', function() {
+  const suratMasukCard = document.querySelector('.card-surat-masuk');
+  const suratKeluarCard = document.querySelector('.card-surat-keluar');
+  const suratAccCard = document.querySelector('.card-surat-acc');
+
+  suratMasukCard.classList.add('animate__animated', 'animate__fadeIn');
+  suratKeluarCard.classList.add('animate__animated', 'animate__fadeIn');
+  suratAccCard.classList.add('animate__animated', 'animate__fadeIn');
+
+  suratMasukCard.addEventListener('animationend', function() {
+      suratMasukCard.classList.remove('animate__animated', 'animate__fadeIn');
+  });
+
+  suratKeluarCard.addEventListener('animationend', function() {
+      suratKeluarCard.classList.remove('animate__animated', 'animate__fadeIn');
+  });
+
+  suratAccCard.addEventListener('animationend', function() {
+      suratAccCard.classList.remove('animate__animated', 'animate__fadeIn');
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const panelHeader = document.querySelector('.panel-header');
+
+  panelHeader.classList.add('animate__animated', 'animate__fadeInDown');
+
+  panelHeader.addEventListener('animationend', function() {
+      panelHeader.classList.remove('animate__animated', 'animate__fadeInDown');
+  });
+});
+
+
   
 
 

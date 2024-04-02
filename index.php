@@ -2,35 +2,32 @@
 session_start();
 include_once('config/koneksi.php');
 
+// if (!isset($_SESSION['email'])) {
+//     header('location: index.php');
+//     exit();
+// }
+
 if (isset($_POST['ingatSaya']) && $_POST['ingatSaya'] == "true") {
-  setcookie("ingatSaya", "true", time() + (86400 * 30), "/");
+    setcookie("ingatSaya", "true", time() + (86400 * 30), "/"); 
 }
 
-if (isset($_SESSION['login'])) {
-    if ($_SESSION['jabatan'] == 'sekretaris umum') {
-        header('Location: view/admin/');
-        exit;
-    } elseif (in_array($_SESSION['jabatan'], ['sekretaris departemen', 'sekretaris panitia', 'sekretaris divisi'])) {
-        header('Location: view/user/');
-        exit;
-    }
-}
 $email = isset($_SESSION['email']) ? $_SESSION['email'] : '';
 $jabatan = isset($_SESSION['jabatan']) ? $_SESSION['jabatan'] : '';
 
 if(isset($_SESSION['email'])) {
-  $email = $_SESSION['email'];
-  $query = "SELECT * FROM user WHERE email = '$email'";
-  $result = mysqli_query($con, $query);
+    $email = $_SESSION['email'];
+    $query = "SELECT * FROM user WHERE email = ?";
+    $stmt = mysqli_prepare($con, $query);
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
 
-  $row = mysqli_fetch_assoc($result);
-  $_SESSION['username'] = $row['username'];
-  $_SESSION['nama'] = $row['nama'];
-
-  $_SESSION['email'] = $row['email'];
+    if ($row = mysqli_fetch_assoc($result)) {
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['nama'] = $row['nama'];
+        $_SESSION['email'] = $row['email'];
+    }
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -72,10 +69,10 @@ if(isset($_SESSION['email'])) {
                     </div>
 
                     <!-- Jabatan input -->
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="jabatan"><i class="bi bi-person-lines-fill"></i> Jabatan</label>
+                    <div class="form-outline mb-2">
+                        <label class="form-label" for="jabatan"><i class="bi bi-person-lines-fill"></i> Role</label>
                         <select id="jabatan" class="form-control form-control-lg" name="jabatan" style="border-radius: 25px;">
-                            <option value="" selected disabled hidden>Pilih Jabatan</option>
+                            <option value="" selected disabled hidden>Pilih Role</option>
                             <option value="sekretaris umum">Sekretaris Umum</option>
                             <option value="sekretaris panitia">Sekretaris Panitia</option>
                             <option value="sekretaris departemen">Sekretaris Departemen</option>

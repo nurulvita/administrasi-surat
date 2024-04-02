@@ -31,10 +31,8 @@ if (!isset($_SESSION['email'])) {
             include '../../config/koneksi.php';
             $surat = mysqli_query($con, "SELECT * from surat_keluar WHERE id = $id");
             foreach ($surat as $data) {
-                // Mengambil nama file dari database
                 $file_name = $data['file'];
                 
-                // Path relatif dari folder pdf/pdfsk
                 $file_path = '../../pdf/pdfsk/' . basename($file_name);
             ?>
 
@@ -47,7 +45,7 @@ if (!isset($_SESSION['email'])) {
                                     <br>
                                     <table class="table">
                                         <thead>
-                                            <tr> <!-- Baris judul tabel -->
+                                            <tr>
                                                 <th scope="col">Keterangan</th>
                                                 <th scope="col">Detail</th>
                                             </tr>
@@ -84,10 +82,10 @@ if (!isset($_SESSION['email'])) {
                                         </tbody>
                                     </table>
                                     <div class="text-right">
-                                        <a href="index.php" class="btn btn-primary">Kembali</a>
-                                        <a href="<?php echo $file_path; ?>" class="btn btn-danger">Unduh</a>
-                                        <a href="edit.php?id=<?php echo $data['id']; ?>" class="btn btn-warning">Edit / Ganti File</a>
+                                        <a href="index.php" class="btn btn-primary btn-rounded" style="border-radius: 20px;">Kembali</a>
+                                        <a href="<?php echo $file_path; ?>" class="btn btn-danger btn-rounded" style="border-radius: 20px;">Unduh</a>
                                     </div>
+
 
                                 </div>
                                 <div class="col-md-6"> 
