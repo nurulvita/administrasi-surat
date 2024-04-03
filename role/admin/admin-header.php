@@ -35,6 +35,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="../../view/admin/suratacc.php">Permintaan Upload</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../../view/admin/sekretaris.php">Sekretaris</a>
+                    </li>
                 </ul>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">

@@ -11,39 +11,9 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-
 $_SESSION['nama'];
 $_SESSION['email'];
 ?>
-<!-- // if (isset($_SESSION['login'])) {
-//     // User is already logged in
-//     if ($_SESSION['jabatan'] == 'sekretaris umum') {
-//         header('Location: view/admin/');
-//         exit;
-//     } elseif (in_array($_SESSION['jabatan'], ['sekretaris departemen', 'sekretaris panitia', 'sekretaris divisi'])) {
-//         header('Location: view/user/');
-//         exit;
-//     }
-// }
-
-// // If "Ingat Saya" checkbox is checked, set a cookie
-// if (isset($_POST['ingatSaya']) && $_POST['ingatSaya'] == "true") {
-//     setcookie("ingatSaya", "true", time() + (86400 * 30), "/"); // Cookie set for 30 days
-// }
-
-
-
-// $email = isset($_COOKIE['email']) ? $_COOKIE['email'] : '';
-// $jabatan = isset($_COOKIE['jabatan']) ? $_COOKIE['jabatan'] : '';
-
-// $email = $_SESSION['email'];
-// $query = "SELECT * FROM user WHERE email = '$email'";
-// $result = mysqli_query($con, $query);
-
-// $row = mysqli_fetch_assoc($result);
-// $_SESSION['username'] = $row['username'];
-// $_SESSION['nama'] = $row['nama']; -->
-
 
 <!DOCTYPE html>
 <html lang="en">

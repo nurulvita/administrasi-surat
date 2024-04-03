@@ -81,9 +81,9 @@
                         <div class="d-flex flex-row align-items-center">
                           <i class="fas fa-briefcase fa-lg fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
-                            <label class="form-label" for="position"><i class="bi bi-person-lines-fill"></i> Jabatan</label>
+                            <label class="form-label" for="position"><i class="bi bi-person-lines-fill"></i> Role</label>
                             <select id="jabatan" class="form-control form-control-lg" name="jabatan" style="border-radius: 25px;" required>
-                              <option value="" selected disabled hidden>Pilih Jabatan</option>
+                              <option value="" selected disabled hidden>Pilih Role</option>
                               <option value="sekretaris umum">Sekretaris Umum</option>
                               <option value="sekretaris panitia">Sekretaris Panitia</option>
                               <option value="sekretaris departemen">Sekretaris Departemen</option>
