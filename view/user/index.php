@@ -8,7 +8,6 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-// Mengambil nama pengguna dari sesi
 $nama = isset($_SESSION['nama']) ? $_SESSION['nama'] : '';
 
 ?>

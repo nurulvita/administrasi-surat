@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar</title>
+    <title>INFORSArchive</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link href="../../../assets/css/main.css" rel="stylesheet">
@@ -23,16 +23,19 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../../admin/index.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="../../admin/suratmasuk.php">Surat Masuk</a>
+                        <a class="nav-link active" href="../suratmasuk.php">Surat Masuk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../admin/suratkeluar.php">Surat Keluar</a>
+                        <a class="nav-link active" href="../suratkeluar.php">Surat Keluar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="../../admin/suratacc.php">Permintaan Upload</a>
+                        <a class="nav-link active" href="../suratacc.php">Permintaan Upload</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../sekretaris.php">Sekretaris</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
