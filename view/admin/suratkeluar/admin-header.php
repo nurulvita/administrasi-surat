@@ -39,14 +39,21 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="../../../logout.php" onclick="return confirm('Are you sure you want to logout?')">Logout <i class='bx bx-log-out'></i></a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <?=$_SESSION['email'];?>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="profil.php">Profile</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <span class="nav-link active">|</span>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link active">Email: <?=$_SESSION['email'];?></span>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Logout <i class='bx bx-log-out'></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../../../logout.php" onclick="return confirm('Are you sure you want to logout?')">Logout</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>

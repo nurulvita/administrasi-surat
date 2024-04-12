@@ -112,6 +112,8 @@ if (!isset($_SESSION['email'])) {
 <?php
         }
 ?>
+    <script src="../../../assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 
 </body>
 

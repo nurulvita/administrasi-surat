@@ -7,7 +7,6 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-// Mengambil data pengguna dari database berdasarkan email yang tersimpan di sesi
 $email = $_SESSION['email'];
 $query = "SELECT * FROM user WHERE email = '$email'";
 $result = mysqli_query($con, $query);
@@ -60,6 +59,14 @@ $_SESSION['departemen'] = $row['departemen'];
                                             ?>
                                             <img src="<?= $file_path ?>" class="img-fluid rounded-start" alt="Foto Profil" style="height: 50vh;">
                                             <?php } ?>
+                                            <form action="update_foto.php" method="post" enctype="multipart/form-data">
+                                                <div class="mb-3">
+                                                    <label for="foto" class="form-label">Upload Foto Profil Baru</label>
+                                                    <input type="file" class="form-control" id="foto" name="foto" required>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary" name="submit">Update Foto Profil</button>
+                                            </form>
+
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body">
@@ -93,6 +100,7 @@ $_SESSION['departemen'] = $row['departemen'];
                                         </div>
                                     </div>
                                 </div>
+
                                 <a href="javascript:history.go(-1)" class="btn btn-secondary">Kembali</a>
                             </div>
                         </div>

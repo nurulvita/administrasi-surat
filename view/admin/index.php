@@ -2,12 +2,8 @@
 session_start();
 include_once('../../config/koneksi.php');
 
-if (isset($_COOKIE['ingatSaya'])) {
-  $_SESSION['login'] = true;
-}
-
 if (!isset($_SESSION['email'])) {
-    header('location: ../../index.php');
+    header('location:../../index.php');
     exit();
 }
 
@@ -34,11 +30,9 @@ $_SESSION['email'];
                 <div class="panel-header bg-primary-gradient">
                     <div class="page-inner py-2">
                         <div class="row">
-                            <!-- Kolom untuk gambar home -->
                             <div class="col-md-6">
                                 <img src="../../assets/img/sm.png" alt="" class="img-fluid" style="height: 65vh;">
                             </div>
-                            <!-- Kolom untuk pesan welcome -->
                             <div class="col-md-6 d-flex align-items-center justify-content-center">
                                 <div class="text-center">
                                     <h3 class="text-white pb-2 fw-bold" style="font-size: 50px;">Selamat Datang, <br><span style="color: yellow; font-size:50px;"><?=$_SESSION['nama'];?></span></h3>
