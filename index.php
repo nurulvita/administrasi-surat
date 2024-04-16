@@ -73,7 +73,8 @@ if(isset($_SESSION['email'])) {
                         <label class="form-label" for="jabatan"><i class="bi bi-person-lines-fill"></i> Role</label>
                         <select id="jabatan" class="form-control form-control-lg" name="jabatan" style="border-radius: 25px;">
                             <option value="" selected disabled hidden>Pilih Role</option>
-                            <option value="sekretaris umum">Sekretaris Umum</option>
+                            <option value="superadmin">Superadmin</option>
+                            <option value="sekretaris umum">Admin (Sekretaris Umum)</option>
                             <option value="sekretaris panitia">Sekretaris Panitia</option>
                             <option value="sekretaris departemen">Sekretaris Departemen</option>
                             <option value="sekretaris divisi">Sekretaris Divisi</option>

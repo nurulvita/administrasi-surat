@@ -36,7 +36,7 @@ $total_surat_masuk = $count_row_surat_masuk['total'];
 <html lang="en">
 
 <head>
-    <?php include '../../role/admin/admin-header.php'; ;?>
+    <?php include '../../role/superadmin/admin-header.php'; ;?>
     <style>
         .card {
             border: none;
@@ -57,6 +57,9 @@ $total_surat_masuk = $count_row_surat_masuk['total'];
             background: linear-gradient(135deg, #039BE5, #2E7D32);
         }
 
+        .card-jumlah-sekretaris {
+            background: linear-gradient(135deg, #43A047, #1B5E20);
+        }
 
         .card-body {
             padding: 20px;
@@ -106,7 +109,7 @@ $total_surat_masuk = $count_row_surat_masuk['total'];
 
                     <div class="row pt-4">
                         <!-- Surat Masuk -->
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="card card-surat-masuk">
                                 <div class="card-body">
                                     <h4 class="card-title">Surat Masuk</h4>
@@ -117,7 +120,7 @@ $total_surat_masuk = $count_row_surat_masuk['total'];
                         </div>
 
                         <!-- Surat Keluar -->
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="card card-surat-keluar">
                                 <div class="card-body">
                                     <h4 class="card-title">Surat Keluar</h4>
@@ -128,7 +131,7 @@ $total_surat_masuk = $count_row_surat_masuk['total'];
                         </div>
 
                         <!-- Menunggu Persetujuan -->
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="card card-surat-acc">
                                 <div class="card-body">
                                     <h4 class="card-title">Menunggu Persetujuan</h4>
@@ -138,6 +141,16 @@ $total_surat_masuk = $count_row_surat_masuk['total'];
                             </div>
                         </div>
 
+                        <!-- Jumlah Sekretaris -->
+                        <div class="col-md-3">
+                            <div class="card card-jumlah-sekretaris">
+                                <div class="card-body">
+                                    <h4 class="card-title">Jumlah Sekretaris</h4>
+                                    <p class="card-text"><?php echo $total_sekretaris; ?></p>
+                                    <img src="../../assets/img/iconsekre.png" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

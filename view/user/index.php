@@ -51,8 +51,6 @@ $nama = isset($_SESSION['nama']) ? $_SESSION['nama'] : '';
                             </div>
                         </div>
                     </div>
-
-
                 </div>
 
                 <!-- Halaman konten -->

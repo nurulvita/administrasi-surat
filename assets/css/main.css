@@ -462,6 +462,10 @@
     color: white;
   }
 
+  .card-surat-sekre {
+    background: linear-gradient(to bottom, #a14f07, #e6c417);
+    color: white;
+  }
  
   /*     Table    */
   .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
